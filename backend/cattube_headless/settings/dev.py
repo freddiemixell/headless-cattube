@@ -1,4 +1,7 @@
 from .base import *
+import os
+
+USE_PROXY = os.environ.get('USE_PROXY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -16,6 +19,9 @@ try:
     from .local import *
 except ImportError:
     pass
+
+if USE_PROXY:
+    from .storage import *
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000'
