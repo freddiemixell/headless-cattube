@@ -1,0 +1,45 @@
+*.swp
+*.pyc
+.DS_Store
+/.coverage
+/dist/
+/build/
+/MANIFEST
+/wagtail.egg-info/
+/docs/_build/
+/.tox/
+/.venv
+/venv
+node_modules
+npm-debug.log*
+*.idea/
+/*.egg/
+/.cache/
+/.pytest_cache/
+/storybook-static
+/static/
+/__pycache__/
+
+### JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+coverage/
+
+### vscode
+.vscode
+
+*.db
+__pycache__/
+
+
+# Local DB
+db.sqlite3
+
+# CMS generated files
+media
+backend/static
+
+# Don't ignore .vscode/settings.json
+!.vscode/settings.json
