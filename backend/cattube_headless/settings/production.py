@@ -14,7 +14,8 @@ DB_PASSWORD = get_secret("db_password", PROJECT_ID)
 GS_FILE_OVERWRITE = False
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'https://cattube-tv.netlify.app'
 ]
 
 ALLOWED_HOSTS = ['cattube-422413.uc.r.appspot.com']
