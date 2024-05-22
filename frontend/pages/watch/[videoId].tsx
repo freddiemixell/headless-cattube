@@ -91,9 +91,7 @@ export async function getStaticPaths() {
 }
 
 
-export async function getStaticProps({params}: {params
-    
-    : {videoId: string}}) {
+export async function getStaticProps({params}: {params: {videoId: string}}) {
     const video = await VideoService.getVideo(params.videoId);
     return {
         props: {
