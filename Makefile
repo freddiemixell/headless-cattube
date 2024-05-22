@@ -30,10 +30,10 @@ shell:
 	python ./backend/manage.py shell
 
 proxy-db:
-	./cloud-sql-proxy cattube-cms-prod:us-central1:blog-cms
+	./backend/cloud-sql-proxy cattube-422413:us-central1:cattube-prod-db
 
 deploy-cms:
-	DJANGO_SETTINGS_MODULE=cattube_headless.settings.production python ./backend/manage.py collectstatic --noinput && gcloud app deploy ./backend/app.yaml --project=cattube-cms-prod
+	DJANGO_SETTINGS_MODULE=cattube_headless.settings.production python ./backend/manage.py collectstatic --noinput && gcloud app deploy ./backend/app.yaml --project=cattube-422413
 
 # Build cms assets for deploying cms itself.
 static:
