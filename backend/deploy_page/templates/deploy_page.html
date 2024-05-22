@@ -1,0 +1,30 @@
+{% extends "wagtailadmin/base.html" %}
+{% load wagtailadmin_tags static %}
+
+{% block titletag %}Deploy The Site{% endblock %}
+
+{% block content %}
+    <header class="w-header">
+        <div class="row">
+            <div class="left">
+                <div class="col">
+                        <h1 class="w-header__title" id="header-title">
+                            Deploy
+                        </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <form method="POST" action="{% url 'deploy_page' %}" novalidate>
+        <div class="nice-padding spacer">
+            <div class="w-form-width">
+        {% csrf_token %}
+        <button class="button action-save" type="submit" onclick="this.form.submit(); this.disabled = true;">Deploy application</button>
+    </form>
+    <br /><br />
+    <div class="w-form-width">
+        {% if status %}
+            <b>Deploy in progress!</b>
+        {% endif %}
+    </div>
+{% endblock %}
