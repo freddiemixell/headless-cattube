@@ -1,13 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // async rewrites() {
-    //     return [
-    //         {
-    //             source: '/api/v2/:path*',
-    //             destination: 'http://localhost:8000/api/v2/:path*'
-    //         }
-    //     ]
-    // },
     images: {
         remotePatterns: [
             {
@@ -21,6 +13,11 @@ const nextConfig = {
                 hostname: 'source.unsplash.com',
                 port: '',
                 pathname: '/random/*'
+            },
+            {
+                protocol: 'https',
+                hostname: 'storage.googleapis.com',
+                port: '',
             }
         ]
     }

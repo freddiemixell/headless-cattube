@@ -1,8 +1,8 @@
-import {Video, VideoDetail, VideoResponse} from "../@types/video";
+import {VideoDetail, VideoResponse} from "../@types/video";
 
 
 export class VideoService {
-    static domain = 'http://localhost:8000';
+    static domain = process.env.NEXT_PUBLIC_BACKEND_URL;
     static apiUrl = '/api/v2/pages/?fields=video_id,thumbnail_full&type=videos.YoutubeVideoPage';
     public static getVideos = async () => {
         const options = {

@@ -13,7 +13,7 @@ export default async function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {featuredVideos?.map((video) => (
             <a key={video.id} href={`/watch/${video.id}`} className="block">
-              <Image src={`http://localhost:8000${video.thumbnail_full.url}`} alt={video.title} width={500} height={300} className="rounded-lg" />
+              <Image src={`${video.thumbnail_full.url}`} alt={video.title} width={500} height={300} className="rounded-lg" />
               <h3 className="mt-2 font-semibold">{video.title}</h3>
             </a>
           ))}
@@ -24,7 +24,7 @@ export default async function Home() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {otherVideos?.map((video) => (
             <a key={video.id} href={`/watch/${video.id}`} className="block">
-              <Image src={`http://localhost:8000${video.thumbnail_full.url}`} alt={video.title} width={250} height={150} className="rounded-lg" />
+              <Image src={`${video.thumbnail_full.url}`} alt={video.title} width={250} height={150} className="rounded-lg" />
               <h3 className="mt-2 font-semibold">{video.title}</h3>
             </a>
           ))}
