@@ -21,9 +21,7 @@ except ImportError:
 if USE_PROXY:
     from .secrets import get_secret
     GS_FILE_OVERWRITE = False
-    PROJECT_ID = 'cattube-422413'
-    DB_PASSWORD = get_secret("db_password", PROJECT_ID)
-    from .production import STORAGES
+    from .production import STORAGES, DB_PASSWORD
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",

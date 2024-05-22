@@ -9,6 +9,7 @@ BUCKET_STATIC = 'cattube-static-prod'
 BUCKET_MEDIA = 'cattube-assets-prod'
 STATIC_URL = f"https://storage.cloud.google.com/{BUCKET_STATIC}/"
 SECRET_KEY = get_secret("django_secret_key", PROJECT_ID)
+DB_NAME = 'cattube-prod-db'
 DB_PASSWORD = get_secret("db_password", PROJECT_ID)
 GS_FILE_OVERWRITE = False
 
@@ -25,13 +26,13 @@ DATABASES = {
         "NAME": "postgres",
         "USER": "postgres",
         "PASSWORD": DB_PASSWORD,
-        "HOST": "/cloudsql/cattube-422413:us-central1:cattube-prod-db",
+        "HOST": f"/cloudsql/{PROJECT_ID}:us-central1:{DB_NAME}",
         "PORT": "5432",
     }
 }
 
-credentials = service_account.Credentials.from_service_account_file(
-    os.path.join(os.path.dirname(__file__), './credentials.json')
+credentials = service_account.Credentials.from_service_account_info(
+    get_secret("account_info", PROJECT_ID, return_json=True)
 )
 STORAGES = {
     # This hooks up the cms so that any images UPLOADED through the cms are sent to the bucket listed below.
