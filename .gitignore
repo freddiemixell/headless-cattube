@@ -43,5 +43,3 @@ backend/static
 
 # Don't ignore .vscode/settings.json
 !.vscode/settings.json
-
-credentials.json

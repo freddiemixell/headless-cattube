@@ -1,7 +1,7 @@
 from .base import *
 import os
 
-USE_PROXY = os.environ.get('USE_PROXY')
+USE_PROXY = os.environ.get("USE_PROXY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -20,21 +20,21 @@ except ImportError:
 
 if USE_PROXY:
     from .secrets import get_secret
+
     GS_FILE_OVERWRITE = False
     from .production import STORAGES, DB_PASSWORD
+
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
             "NAME": "postgres",
             "USER": "postgres",
             "PASSWORD": DB_PASSWORD,
-            "HOST": "localhost", # staging db is proxied through localhost
+            "HOST": "localhost",  # staging db is proxied through localhost
             "PORT": "5432",
         }
     }
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000'
-]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
 
-ALLOWED_HOSTS = ['my_IPV4', '[my_IPV6]', 'localhost']
+ALLOWED_HOSTS = ["my_IPV4", "[my_IPV6]", "localhost"]
