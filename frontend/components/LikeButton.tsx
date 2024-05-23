@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa"
 
