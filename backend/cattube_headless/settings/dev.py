@@ -20,9 +20,9 @@ except ImportError:
 
 if USE_PROXY:
     from .secrets import get_secret
+    from .production import STORAGES, DB_PASSWORD
 
     GS_FILE_OVERWRITE = False
-    from .production import STORAGES, DB_PASSWORD
 
     DATABASES = {
         "default": {
