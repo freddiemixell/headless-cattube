@@ -30,7 +30,6 @@ export default function Page({video}: {video: VideoDetail|null}) {
                                 <div className="absolute top-0 left-0 w-full h-full">
                                 <LiteYoutubeEmbed
                                     id={video.video_id}
-                                    lazyImage
                                     isMobile
                                 />
                                 </div>
