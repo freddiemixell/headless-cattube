@@ -20,7 +20,8 @@ const nextConfig = {
                 port: '',
             }
         ]
-    }
+    },
+    transpilePackages: ['react-lite-yt-embed']
 };
 
 export default nextConfig;
