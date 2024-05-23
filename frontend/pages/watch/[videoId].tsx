@@ -1,8 +1,9 @@
 import Image from "next/image";
-import VideoPlayer from "@/components/VideoPlayer";
 import { VideoService } from "@/services/videoService"
 import LikeButton from "@/components/LikeButton";
 import { VideoDetail } from "@/@types/video";
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 export default function Page({video}: {video: VideoDetail|null}) {
 
@@ -28,7 +29,10 @@ export default function Page({video}: {video: VideoDetail|null}) {
                         {video && (
                             <div className="relative overflow-hidden pb-[56.25%]">
                                 <div className="absolute top-0 left-0 w-full h-full">
-                                    <VideoPlayer {...video} />
+                                <LiteYouTubeEmbed
+                                    id={video.video_id}
+                                    title={video.title}
+                                />
                                 </div>
                             </div>
                         )}
