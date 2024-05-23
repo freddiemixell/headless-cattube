@@ -25,7 +25,10 @@ def deploy_page_view(request):
 
 
 def run_build():
-    url = "https://api.netlify.com/build_hooks/664e3a2acf07a4128b06894f"
+    from cattube_headless.settings.production import PROJECT_ID
+    from cattube_headless.settings.secrets import get_secret
+
+    url = get_secret("build_hook", PROJECT_ID)
     response = requests.post(url)
     if response.status_code == 200:
         print("Build triggered successfully.")
