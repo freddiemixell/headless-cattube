@@ -4,7 +4,7 @@ import LikeButton from "@/components/LikeButton";
 import { VideoDetail } from "@/@types/video";
 import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 
-export default function Page({video}: {video: VideoDetail|null}) {
+export default function Page({video}: {video: VideoDetail}) {
 
     // Example author data, replace with actual data fetching logic
     const author = {
@@ -25,16 +25,14 @@ export default function Page({video}: {video: VideoDetail|null}) {
             <div className="video-wrapper">
                 <div className="max-w-5xl mx-auto px-4 py-8">
                     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-                        {video && (
-                            <div className="relative w-full overflow-hidden pb-[56.25%]">
-                                <div className="absolute top-0 left-0 w-full h-full">
+                        <div className="relative w-full overflow-hidden pb-[56.25%]">
+                            <div className="absolute top-0 left-0 w-full h-full">
                                 <LiteYoutubeEmbed
                                     id={video.video_id}
                                     isMobile
                                 />
-                                </div>
                             </div>
-                        )}
+                        </div>
                         <div className="p-4">
                             <h1 className="text-2xl font-bold mb-3">{video?.title}</h1>
                             <p className="text-gray-700 mb-4">{video?.description}</p>
