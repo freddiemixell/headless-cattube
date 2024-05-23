@@ -10,7 +10,10 @@ dev-clean:
 
 # Update Dependencies
 dev-update:
-	pip install -r ./backend/requirements.txt && pip freeze > ./backend/requirements.txt
+	pip install -r ./backend/requirements.txt
+
+dev-freeze:
+	pip freeze > ./backend/requirements.txt
 
 dev:
 	python ./backend/manage.py runserver [::]:8000
