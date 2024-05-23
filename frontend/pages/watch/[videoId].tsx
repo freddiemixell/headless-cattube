@@ -21,7 +21,7 @@ export default function Page({video}: {video: VideoDetail}) {
     ];
 
     return (
-        <div className="watch-page">
+        <div className="watch-page bg-gray-100 min-h-screen">
             <div className="video-wrapper">
                 <div className="max-w-5xl mx-auto px-4 py-8">
                     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
