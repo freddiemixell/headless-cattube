@@ -8,5 +8,8 @@
             "source.organizeImports.ruff": "explicit"
         },
         "editor.formatOnSave": true
-    }
+    },
+    "eslint.workingDirectories": [
+        "./frontend"
+    ]
 }
