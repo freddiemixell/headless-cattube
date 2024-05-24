@@ -43,7 +43,9 @@ class YoutubeVideoPage(Page):
     parent_page_types = ["YoutubeDirectoryPage"]
     sub_page_types = []
 
-    video_id = models.TextField(blank=True, help_text="The ID of the video to play.")
+    video_id = models.TextField(
+        blank=False, null=False, help_text="The ID of the video to play."
+    )
     width = models.IntegerField(
         blank=True, default=560, help_text="The width of the player in pixels."
     )
