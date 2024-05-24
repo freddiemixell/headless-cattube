@@ -4,7 +4,7 @@ export interface Video {
     title: string;
     thumbnail_full: {
         url: string;
-    };
+    }|null;
 }
 
 export interface VideoDetail extends Video {

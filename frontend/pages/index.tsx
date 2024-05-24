@@ -13,7 +13,7 @@ export default function Home({videos}: {videos: VideoResponse|null}) {
           <h2 className="text-2xl font-bold mb-4">Featured Videos</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {featuredVideos?.map((video) => {
-              let thumbnail = video.thumbnail_full.url ? video.thumbnail_full.url : `https://img.youtube.com/vi_webp/${video.video_id}/hqdefault.webp`
+              let thumbnail = video?.thumbnail_full?.url ? video.thumbnail_full.url : `https://img.youtube.com/vi_webp/${video.video_id}/hqdefault.webp`
               // check if the url starts with http. if not, add http://localhost:8080
               if (!thumbnail.startsWith('http')) {
                 thumbnail = `http://localhost:8000${thumbnail}`
@@ -33,7 +33,7 @@ export default function Home({videos}: {videos: VideoResponse|null}) {
           <h2 className="text-2xl font-bold mb-4">More Videos</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {otherVideos?.map((video) => {
-              let thumbnail = video.thumbnail_full.url ? video.thumbnail_full.url : `https://img.youtube.com/vi_webp/${video.video_id}/hqdefault.webp`
+              let thumbnail = video?.thumbnail_full?.url ? video.thumbnail_full.url : `https://img.youtube.com/vi_webp/${video.video_id}/hqdefault.webp`
               // check if the url starts with http. if not, add http://localhost:8000
               if (!thumbnail.startsWith('http')) {
                 thumbnail = `http://localhost:8000${thumbnail}`
