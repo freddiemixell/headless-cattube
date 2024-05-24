@@ -18,11 +18,11 @@ export default function About() {
                     <h2 className="text-2xl font-bold text-red-500 mb-3">Project Repository</h2>
                     <p className="text-lg text-gray-700 mb-4">
                         You can find the code for this project on GitHub:
-                        <a href="https://github.com/[YourGitHubUsername]/[RepoName]" className="text-blue-500 hover:text-blue-600"> https://github.com/[YourGitHubUsername]/[RepoName]</a>
+                        <a href="https://github.com/freddiemixell/headless-cattube" className="text-blue-500 hover:text-blue-600 break-words"> https://github.com/freddiemixell/headless-cattube</a>
                     </p>
                     <p className="text-lg text-gray-700">
                         This project was created by <strong>Freddie Mixell</strong>. You can follow me on GitHub to see more of my projects:
-                        <a href="https://github.com/[YourGitHubUsername]" className="text-blue-500 hover:text-blue-600"> https://github.com/[YourGitHubUsername]</a>
+                        <a href="https://github.com/freddiemixell" className="text-blue-500 hover:text-blue-600 break-words"> https://github.com/freddiemixell</a>
                     </p>
                 </div>
             </div>
