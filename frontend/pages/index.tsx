@@ -1,6 +1,5 @@
 import { VideoResponse } from "@/@types/video";
 import { VideoService } from "@/services/videoService";
-import Layout from "@/components/Layout";
 import Image from "next/image";
 
 export default function Home({videos}: {videos: VideoResponse|null}) {
@@ -13,27 +12,41 @@ export default function Home({videos}: {videos: VideoResponse|null}) {
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-4">Featured Videos</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {featuredVideos?.map((video) => (
-              <a key={video.id} href={`/watch/${video.id}`} className="block">
-                <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden">
-                  <Image src={`https://img.youtube.com/vi_webp/${video.video_id}/hqdefault.webp`} alt={video.title} width={500} height={300} className="rounded-lg object-cover w-full h-full" />
-                </div>
-                <h3 className="mt-2 font-semibold">{video.title}</h3>
-              </a>
-            ))}
+            {featuredVideos?.map((video) => {
+              let thumbnail = video.thumbnail_full.url ? video.thumbnail_full.url : `https://img.youtube.com/vi_webp/${video.video_id}/hqdefault.webp`
+              // check if the url starts with http. if not, add http://localhost:8080
+              if (!thumbnail.startsWith('http')) {
+                thumbnail = `http://localhost:8000${thumbnail}`
+              }
+              return (
+                <a key={video.id} href={`/watch/${video.id}`} className="block">
+                  <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden">
+                    <Image src={thumbnail} alt={video.title} width={500} height={300} className="rounded-lg object-cover w-full h-full" />
+                  </div>
+                  <h3 className="mt-2 font-semibold">{video.title}</h3>
+                </a>
+              )
+            })}
           </div>
         </section>
         <section>
           <h2 className="text-2xl font-bold mb-4">More Videos</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {otherVideos?.map((video) => (
-              <a key={video.id} href={`/watch/${video.id}`} className="block">
-                <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden">
-                  <Image src={`https://img.youtube.com/vi_webp/${video.video_id}/hqdefault.webp`} alt={video.title} width={250} height={150} className="rounded-lg object-cover w-full h-full" />
-                </div>
-                <h3 className="mt-2 font-semibold">{video.title}</h3>
-              </a>
-            ))}
+            {otherVideos?.map((video) => {
+              let thumbnail = video.thumbnail_full.url ? video.thumbnail_full.url : `https://img.youtube.com/vi_webp/${video.video_id}/hqdefault.webp`
+              // check if the url starts with http. if not, add http://localhost:8000
+              if (!thumbnail.startsWith('http')) {
+                thumbnail = `http://localhost:8000${thumbnail}`
+              }
+              return (
+                <a key={video.id} href={`/watch/${video.id}`} className="block">
+                  <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden">
+                    <Image src={thumbnail} alt={video.title} width={250} height={150} className="rounded-lg object-cover w-full h-full" />
+                  </div>
+                  <h3 className="mt-2 font-semibold">{video.title}</h3>
+                </a>
+              )
+            })}
           </div>
         </section>
       </div>
