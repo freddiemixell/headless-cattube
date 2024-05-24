@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter()
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      setIsOpen(false);
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange)
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [router.events]);
 
   return (
     <header className="bg-red-500 text-white p-4 relative z-10">
